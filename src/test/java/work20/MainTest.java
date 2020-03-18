@@ -2,6 +2,7 @@ package work20;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -25,8 +26,13 @@ public class MainTest {
 
     @Test(enabled = true)
     public void work20() {
-        String attributeUsername = webDriver.findElement(By.xpath("//div/input[@value='demo']")).getAttribute("dem");
-        Assert.assertEquals(attributeUsername, "demo");
+        webDriver.findElement(By.id("login-button")).click();
+        Cookie checkCookieLogin = webDriver.manage().getCookieNamed("BSPB.demo_SESSIONID_AUTH");
+        webDriver.findElement(By.id("login-otp-button")).click();
+        webDriver.findElement(By.id("bank-overview")).click();
+        String text = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[@class='amount']")).getText();
+        System.out.printf(text);
+        Assert.assertEquals(text, "2 718 764.83 ₽");
     }
     @AfterTest
     public void driverOut() {
