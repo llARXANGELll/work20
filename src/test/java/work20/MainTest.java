@@ -27,7 +27,6 @@ public class MainTest {
     @Test(enabled = true)
     public void work20() {
         webDriver.findElement(By.id("login-button")).click();
-        Cookie checkCookieLogin = webDriver.manage().getCookieNamed("BSPB.demo_SESSIONID_AUTH");
         webDriver.findElement(By.id("login-otp-button")).click();
         webDriver.findElement(By.id("bank-overview")).click();
         String text = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[@class='amount']")).getText();
