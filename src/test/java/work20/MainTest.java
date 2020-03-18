@@ -29,9 +29,10 @@ public class MainTest {
         webDriver.findElement(By.id("login-button")).click();
         webDriver.findElement(By.id("login-otp-button")).click();
         webDriver.findElement(By.id("bank-overview")).click();
-        String text = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[@class='amount']")).getText();
+        String text = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]")).getText();
         System.out.printf(text);
-        Assert.assertEquals(text, "2 718 764.83 ₽");
+
+        Assert.assertEquals(text, "2 718 486.83 ₽");
     }
     @AfterTest
     public void driverOut() {
