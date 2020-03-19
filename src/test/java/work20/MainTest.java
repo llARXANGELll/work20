@@ -29,10 +29,10 @@ public class MainTest {
         webDriver.findElement(By.id("login-button")).click();
         webDriver.findElement(By.id("login-otp-button")).click();
         webDriver.findElement(By.id("bank-overview")).click();
-        String text = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]")).getText();
-        System.out.printf(text);
-
-        Assert.assertEquals(text, "2 718 486.83 ₽");
+        String returnCurrentFinances = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]")).getText();
+        Assert.assertEquals(returnCurrentFinances, "2 718 486.83 ₽");
+        String returnAllFinance = webDriver.findElement(By.xpath("//div[2]/div/div/span/small[normalize-space(@class='my-assets')]")).getText();
+        Assert.assertEquals(returnAllFinance, "2 936 972.64 ₽");
     }
     @AfterTest
     public void driverOut() {
