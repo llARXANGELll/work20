@@ -4,7 +4,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
@@ -27,14 +31,17 @@ public class MainTest {
     @Test(enabled = true)
     public void work20() {
         webDriver.findElement(By.id("login-button")).click();
+
         webDriver.findElement(By.id("login-otp-button")).click();
         webDriver.findElement(By.id("bank-overview")).click();
-        String returnCurrentFinances = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]")).getText();
-        Assert.assertEquals(returnCurrentFinances, "2 718 764.83 ₽");
-        String returnAllFinance = webDriver.findElement(By.xpath("//div[2]/div/div/span/small[@class='my-assets']")).getText();
-        System.out.println(returnAllFinance);
-        Assert.assertEquals(returnAllFinance, "2 936 972.64 ₽");
+        WebElement amount = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
+        Assert.assertEquals(amount.getText(), "2 718 764.83 ₽");
+        WebElement myAssets = webDriver.findElement(By.className("my-assets"));
+        new Actions(webDriver).moveToElement(amount).perform();
+        new WebDriverWait(webDriver, 5).until(ExpectedConditions.visibilityOf(myAssets));
+        Assert.assertEquals(myAssets.getText(),"Моих средств 2 936 972.64 ₽");
     }
+
     @AfterTest
     public void driverOut() {
         webDriver.quit();
