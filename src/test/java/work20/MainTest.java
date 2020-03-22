@@ -28,10 +28,9 @@ public class MainTest {
         webDriver.get("https://idemo.bspb.ru/");
     }
 
-    @Test(enabled = true)
+    @Test
     public void work20() {
         webDriver.findElement(By.id("login-button")).click();
-
         webDriver.findElement(By.id("login-otp-button")).click();
         webDriver.findElement(By.id("bank-overview")).click();
         WebElement amount = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
