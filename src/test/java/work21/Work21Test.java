@@ -19,8 +19,6 @@ import java.util.concurrent.TimeUnit;
 public class Work21Test {
 
     private WebDriver webDriver;
-    private LoginPage loginPage = new LoginPage(webDriver);
-    private SmsConfirmation smsConfirmation = new SmsConfirmation(webDriver);
 
     @BeforeSuite
     public void setup() {
@@ -34,15 +32,15 @@ public class Work21Test {
 
     @Test
     public void work21() {
+        LoginPage loginPage = new LoginPage(webDriver);
         loginPage.loginInput("").passwordInput("").loginButton();
-        smsConfirmation.otpCode("").inputButton();
 
-
-
+        SmsConfirmation smsConfirmation = new SmsConfirmation(webDriver);
+        smsConfirmation.otpCode("").inputButton().returnTitle();
 
 //        // готовое 19
 //        webDriver.findElement(By.id("login-button")).click();
-        webDriver.findElement(By.id("login-otp-button")).click();
+//        webDriver.findElement(By.id("login-otp-button")).click();
         webDriver.findElement(By.id("bank-overview")).click();
         WebElement amount = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
         Assert.assertEquals(amount.getText(), "2 718 764.83 ₽");

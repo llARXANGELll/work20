@@ -21,4 +21,12 @@ public class SmsConfirmation {
         return this;
     }
 
+    boolean returnTitle() {
+        if(webDriver.getTitle().equals("Старт -  Интернет банк - Банк Санкт-Петербург")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
