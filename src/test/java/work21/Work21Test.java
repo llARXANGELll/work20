@@ -24,10 +24,14 @@ public class Work21Test {
     @Test
     public void work21() {
         LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.loginInput("").passwordInput("").loginButton();
+        loginPage.loginInput("")
+                .passwordInput("")
+                .loginButton();
 
         SmsConfirmationPage smsConfirmation = new SmsConfirmationPage(webDriver);
-        smsConfirmation.otpCode("").inputButton().verifyTitle();
+        smsConfirmation.otpCode("")
+                .inputButton()
+                .verifyTitle();
 
         OverviewTabPage overviewTab = new OverviewTabPage(webDriver);
         overviewTab.overviewButton().verefiTitle();

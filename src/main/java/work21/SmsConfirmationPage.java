@@ -13,19 +13,16 @@ public class SmsConfirmationPage {
         this.webDriver = webDriver;
     }
 
-
-    @FindBy(id = "otp-code")
-    private WebElement otpcode;
-    @FindBy(id = "login-otp-button")
-    WebElement loginOtpButton;
+    private By otpcode = By.id("otp-code");
+    private By loginOtpButton = By.id("login-otp-button");
 
     public SmsConfirmationPage otpCode (String otpCode) {
-        otpcode.sendKeys(otpCode);
+        webDriver.findElement(otpcode).sendKeys(otpCode);
         return this;
     }
 
     public SmsConfirmationPage inputButton () {
-        loginOtpButton.click();
+        webDriver.findElement(loginOtpButton).click();
         return this;
     }
 
