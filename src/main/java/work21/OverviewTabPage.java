@@ -8,26 +8,26 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class OverviewTab {
+public class OverviewTabPage {
 
     private WebDriver webDriver;
 
-    OverviewTab(WebDriver webDriver) {
+    OverviewTabPage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
-    public OverviewTab overviewButton() {
+    public OverviewTabPage overviewButton() {
         webDriver.findElement(By.id("bank-overview")).click();
         return this;
     }
 
-    public OverviewTab amountMoney () {
+    public OverviewTabPage amountMoney () {
         WebElement amount = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
         Assert.assertEquals(amount.getText(), "2 718 764.83 ₽");
         return this;
     }
 
-    public OverviewTab myMoney () {
+    public OverviewTabPage myMoney () {
         WebElement amount = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
         WebElement myMoney = webDriver.findElement(By.className("my-assets"));
         new Actions(webDriver).moveToElement(amount).perform();
