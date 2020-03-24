@@ -15,8 +15,8 @@ public class LoginPage {
     By username = By.name("username");
     By password = By.name("password");
 
-    public LoginPage loginInput(String login) {
-        webDriver.findElement(username).sendKeys(login);
+    public LoginPage loginInput(String setlogin) {
+        webDriver.findElement(username).sendKeys(setlogin);
         return this;
     }
 
