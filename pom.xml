@@ -48,7 +48,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.22.2</version>
         <configuration>
-          <suiteXmlFiles>src/test/resources/suite/test.xml</suiteXmlFiles>
+          <suiteXmlFiles>src/test/resources/suite/work20.xml</suiteXmlFiles>
         </configuration>
       </plugin>
     </plugins>
