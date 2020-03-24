@@ -26,8 +26,6 @@ public class Work21Test {
         webDriver = new ChromeDriver();
         webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         webDriver.get("https://idemo.bspb.ru/");
-
-
     }
 
     @Test
@@ -36,18 +34,11 @@ public class Work21Test {
         loginPage.loginInput("").passwordInput("").loginButton();
 
         SmsConfirmation smsConfirmation = new SmsConfirmation(webDriver);
-        smsConfirmation.otpCode("").inputButton().returnTitle();
+        smsConfirmation.otpCode("").inputButton().verifyTitle();
 
-//        // готовое 19
-//        webDriver.findElement(By.id("login-button")).click();
-//        webDriver.findElement(By.id("login-otp-button")).click();
-        webDriver.findElement(By.id("bank-overview")).click();
-        WebElement amount = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
-        Assert.assertEquals(amount.getText(), "2 718 764.83 ₽");
-        WebElement myAssets = webDriver.findElement(By.className("my-assets"));
-        new Actions(webDriver).moveToElement(amount).perform();
-        new WebDriverWait(webDriver, 5).until(ExpectedConditions.visibilityOf(myAssets));
-        Assert.assertEquals(myAssets.getText(),"Моих средств 2 936 972.64 ₽");
+        OverviewTab overviewTab = new OverviewTab(webDriver);
+        overviewTab.overviewButton().verefiTitle();
+        overviewTab.amountMoney().myMoney();
     }
 
     @AfterTest
