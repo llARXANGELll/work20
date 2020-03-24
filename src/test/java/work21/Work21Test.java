@@ -19,6 +19,8 @@ import java.util.concurrent.TimeUnit;
 public class Work21Test {
 
     private WebDriver webDriver;
+    private LoginPage loginPage = new LoginPage(webDriver);
+    private SmsConfirmation smsConfirmation = new SmsConfirmation(webDriver);
 
     @BeforeSuite
     public void setup() {
@@ -26,13 +28,15 @@ public class Work21Test {
         webDriver = new ChromeDriver();
         webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         webDriver.get("https://idemo.bspb.ru/");
+
+
     }
 
     @Test
     public void work21() {
-
-        LoginPage loginPage = new LoginPage(webDriver);
         loginPage.loginInput("").passwordInput("").loginButton();
+        smsConfirmation.otpCode("").inputButton();
+
 
 
 
