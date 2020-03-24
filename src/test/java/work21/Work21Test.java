@@ -29,14 +29,15 @@ public class Work21Test {
     }
 
     @Test
-    public void work20() {
+    public void work21() {
 
-        LoginPage loginPage = new LoginPage();
-        loginPage.login("login", "password");
+        LoginPage loginPage = new LoginPage(webDriver);
+        loginPage.loginInput("").passwordInput("").loginButton();
 
 
-        // готовое 19
-        webDriver.findElement(By.id("login-button")).click();
+
+//        // готовое 19
+//        webDriver.findElement(By.id("login-button")).click();
         webDriver.findElement(By.id("login-otp-button")).click();
         webDriver.findElement(By.id("bank-overview")).click();
         WebElement amount = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
