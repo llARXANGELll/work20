@@ -1,4 +1,4 @@
-package work20;
+package work21;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class MainTest {
+public class Work21Test {
 
     private WebDriver webDriver;
 
@@ -26,12 +26,21 @@ public class MainTest {
         webDriver = new ChromeDriver();
         webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         webDriver.get("https://idemo.bspb.ru/");
+
+
     }
 
     @Test
-    public void work20() {
-        webDriver.findElement(By.id("login-button")).click();
-        webDriver.findElement(By.id("login-otp-button")).click();
+    public void work21() {
+        LoginPage loginPage = new LoginPage(webDriver);
+        loginPage.loginInput("").passwordInput("").loginButton();
+
+        SmsConfirmation smsConfirmation = new SmsConfirmation(webDriver);
+        smsConfirmation.otpCode("").inputButton().returnTitle();
+
+//        // готовое 19
+//        webDriver.findElement(By.id("login-button")).click();
+//        webDriver.findElement(By.id("login-otp-button")).click();
         webDriver.findElement(By.id("bank-overview")).click();
         WebElement amount = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
         Assert.assertEquals(amount.getText(), "2 718 764.83 ₽");
@@ -46,3 +55,4 @@ public class MainTest {
         webDriver.quit();
     }
 }
+
