@@ -38,7 +38,7 @@ public class MainTest {
         WebElement myAssets = webDriver.findElement(By.className("my-assets"));
         new Actions(webDriver).moveToElement(amount).perform();
         new WebDriverWait(webDriver, 5).until(ExpectedConditions.visibilityOf(myAssets));
-        Assert.assertEquals(myAssets.getText().replace("Моих средств ₽", ""),"Моих средств 2 936 972.64 ₽");
+        Assert.assertEquals(myAssets.getText(),"Моих средств 2 936 972.64 ₽");
     }
 
     @AfterTest
