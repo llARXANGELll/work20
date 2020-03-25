@@ -36,11 +36,8 @@ public class OverviewTabPage {
         return this;
     }
 
-    boolean verefiTitle () {
-        if (webDriver.getTitle().equals("Обзор -  Интернет банк - Банк Санкт-Петербург")) {
-            return true;
-        } else {
-            return false;
-        }
+    public OverviewTabPage checkTitle () {
+        webDriver.getTitle().equals("Обзор - Интернет банк - Банк Санкт-Петербург");
+        return this;
     }
 }

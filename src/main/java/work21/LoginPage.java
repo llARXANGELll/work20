@@ -16,12 +16,14 @@ public class LoginPage {
     By password = By.name("password");
 
     public LoginPage loginInput(String setlogin) {
+        webDriver.findElement(username).clear();
         webDriver.findElement(username).sendKeys(setlogin);
         return this;
     }
 
     public LoginPage passwordInput(String setPassword) {
-        webDriver.findElement(password).sendKeys(setPassword);
+        webDriver.findElement(username).clear();
+        webDriver.findElement(username).sendKeys(setPassword);
         return this;
     }
 

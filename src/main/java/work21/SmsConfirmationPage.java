@@ -17,6 +17,7 @@ public class SmsConfirmationPage {
     private By loginOtpButton = By.id("login-otp-button");
 
     public SmsConfirmationPage otpCode (String otpCode) {
+        webDriver.findElement(otpcode).clear();
         webDriver.findElement(otpcode).sendKeys(otpCode);
         return this;
     }
