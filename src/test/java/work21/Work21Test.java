@@ -31,7 +31,7 @@ public class Work21Test {
         SmsConfirmationPage smsConfirmation = new SmsConfirmationPage(webDriver);
         smsConfirmation.otpCode("")
                 .inputButton()
-                .verifyTitle();
+                .checkTitleSmsConfirmationPage();
 
         OverviewTabPage overviewTab = new OverviewTabPage(webDriver);
         overviewTab.overviewButton().checkTitleOverviewTabPage();
