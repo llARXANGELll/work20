@@ -36,7 +36,7 @@ public class OverviewTabPage {
         return this;
     }
 
-    public OverviewTabPage checkTitle () {
+    public OverviewTabPage checkTitleOverviewTabPage () {
         webDriver.getTitle().equals("Обзор - Интернет банк - Банк Санкт-Петербург");
         return this;
     }

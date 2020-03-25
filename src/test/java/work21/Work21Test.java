@@ -34,7 +34,7 @@ public class Work21Test {
                 .verifyTitle();
 
         OverviewTabPage overviewTab = new OverviewTabPage(webDriver);
-        overviewTab.overviewButton().checkTitle();
+        overviewTab.overviewButton().checkTitleOverviewTabPage();
         overviewTab.amountMoney().myMoney();
     }
 

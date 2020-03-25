@@ -27,11 +27,9 @@ public class SmsConfirmationPage {
         return this;
     }
 
-    boolean verifyTitle() {
-        if(webDriver.getTitle().equals("Старт -  Интернет банк - Банк Санкт-Петербург")) {
-            return true;
-        } else {
-            return false;
-        }
+    public SmsConfirmationPage checkTitleSmsConfirmationPage () {
+        webDriver.getTitle().equals("Старт -  Интернет банк - Банк Санкт-Петербург");
+        return this;
     }
+
 }
