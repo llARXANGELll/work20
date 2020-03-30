@@ -22,8 +22,8 @@ public class LoginPage {
     }
 
     public LoginPage passwordInput(String setPassword) {
-        webDriver.findElement(username).clear();
-        webDriver.findElement(username).sendKeys(setPassword);
+        webDriver.findElement(password).clear();
+        webDriver.findElement(password).sendKeys(setPassword);
         return this;
     }
 
