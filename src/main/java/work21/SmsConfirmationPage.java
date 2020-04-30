@@ -16,18 +16,18 @@ public class SmsConfirmationPage {
     private By otpcode = By.id("otp-code");
     private By loginOtpButton = By.id("login-otp-button");
 
-    public SmsConfirmationPage otpCode (String otpCode) {
+    public SmsConfirmationPage otpCode(String otpCode) {
         webDriver.findElement(otpcode).clear();
         webDriver.findElement(otpcode).sendKeys(otpCode);
         return this;
     }
 
-    public SmsConfirmationPage inputButton () {
+    public SmsConfirmationPage inputButton() {
         webDriver.findElement(loginOtpButton).click();
         return this;
     }
 
-    public SmsConfirmationPage checkTitleSmsConfirmationPage () {
+    public SmsConfirmationPage checkTitleSmsConfirmationPage() {
         webDriver.getTitle().equals("Старт -  Интернет банк - Банк Санкт-Петербург");
         return this;
     }

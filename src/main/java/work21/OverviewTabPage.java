@@ -21,13 +21,13 @@ public class OverviewTabPage {
         return this;
     }
 
-    public OverviewTabPage amountMoney () {
+    public OverviewTabPage amountMoney() {
         WebElement amount = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
         Assert.assertEquals(amount.getText(), "2 718 764.83 ₽");
         return this;
     }
 
-    public OverviewTabPage myMoney () {
+    public OverviewTabPage myMoney() {
         WebElement amount = webDriver.findElement(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
         WebElement myMoney = webDriver.findElement(By.className("my-assets"));
         new Actions(webDriver).moveToElement(amount).perform();
@@ -36,7 +36,7 @@ public class OverviewTabPage {
         return this;
     }
 
-    public OverviewTabPage checkTitleOverviewTabPage () {
+    public OverviewTabPage checkTitleOverviewTabPage() {
         webDriver.getTitle().equals("Обзор - Интернет банк - Банк Санкт-Петербург");
         return this;
     }
